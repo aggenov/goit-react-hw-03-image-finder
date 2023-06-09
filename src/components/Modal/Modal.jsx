@@ -33,11 +33,8 @@ export default class Modal extends React.Component{
       </Overlay>
     )
   }
-}
-
-
+};
 
 Modal.propTypes = {
-  children: PropTypes.element.isRequired,
-  onClose: PropTypes.func.isRequired,
+  children: PropTypes.element.isRequired
 };

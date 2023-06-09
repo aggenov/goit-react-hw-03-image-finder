@@ -67,33 +67,32 @@ export class App extends React.Component {
       page: 1,
     });
   };
-  //нажати кнопки *Load More* меняет номер страницы в стейте +1
+  //нажатиe кнопки *Load More* меняет номер страницы в стейте +1
   loadMoreSubmit = () => {
     this.setState(prevState => ({
       page: prevState.page + 1,
     }));
   };
 
-
   render (){
   const {images, loading, isLoadMoreShown } = this.state;
-  return (
-    <Body>
-        <Searchbar onSubmit={this.handleFormSubmit}/>
-        { !!images.length && (<ImageGallery images={images} />)}
-        { loading && (
-          <Dna
-            visible={true}
-            height="60"
-            width="60"
-            ariaLabel="dna-loading"
-            wrapperStyle={{  margin: '0 auto' }}
-            wrapperClass="dna-wrapper"
-        />
-        )}                        
-      
-        {isLoadMoreShown&&<Button onClick = {this.loadMoreSubmit}/>}
-    </Body>
-  );
-}
+    return (
+      <Body>
+          <Searchbar onSubmit={this.handleFormSubmit}/>
+          { !!images.length && (<ImageGallery images={images} />)}
+          { loading && (
+            <Dna
+              visible={true}
+              height="60"
+              width="60"
+              ariaLabel="dna-loading"
+              wrapperStyle={{  margin: '0 auto' }}
+              wrapperClass="dna-wrapper"
+          />
+          )}                        
+        
+          {isLoadMoreShown&&<Button onClick = {this.loadMoreSubmit}/>}
+      </Body>
+    );
+  }
 };

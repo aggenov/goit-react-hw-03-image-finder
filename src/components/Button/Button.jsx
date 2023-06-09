@@ -15,10 +15,8 @@ export  class Button extends React.Component{
       </ButtonWraper>
     )
   }
-}
-
-
+};
 
 Button.propTypes = {
   onClick: PropTypes.func.isRequired,
-}
+};

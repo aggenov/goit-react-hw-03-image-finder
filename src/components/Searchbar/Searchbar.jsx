@@ -1,6 +1,6 @@
 import { Notify } from "notiflix";
 import React from "react";
-// import {ReactComponent as SearchIcon } from '../SVG/search.svg'
+import PropTypes from "prop-types";
 import { SearchbarWrap, Form, SearchFormBtn, SearchFormBtnLabel, SearchInput } from "./Searchbar.styled";
 
 export default class Searchbar extends React.Component {
@@ -11,15 +11,15 @@ export default class Searchbar extends React.Component {
 
   //функция записи изменения значения поля поиска в стейт
   onImputChange = (event) => {
-      const searchName = event.target.value;
-      this.setState({searchName});
+    const searchName = event.target.value;
+    this.setState({searchName});
   }
 
   // функция onClick при нажати  на кнопку
   onClickSearchBtn = (event) => {
       event.preventDefault();
 
-      const searchName = this.state.searchName.trim().toLowerCase();
+    const searchName = this.state.searchName.trim().toLowerCase();
 
       // если поле пустое - сообщаем
       if (searchName) {
@@ -28,11 +28,10 @@ export default class Searchbar extends React.Component {
       } else {
         Notify.failure('Fill in the search field');
       }
-  }
+  };
 
 
-  render(){
-
+  render () {
   const {searchName} = this.state;
     
     return(
@@ -43,8 +42,9 @@ export default class Searchbar extends React.Component {
             className="button" 
               onClick={this.onClickSearchBtn}
           >
-            <SearchFormBtnLabel>Search</SearchFormBtnLabel>
-              {/* <SearchIcon  size ='20'/> */} 
+              <SearchFormBtnLabel>
+                Search
+              </SearchFormBtnLabel>
           </SearchFormBtn>
 
           <SearchInput
@@ -62,4 +62,8 @@ export default class Searchbar extends React.Component {
       </SearchbarWrap>
     )
   }
-}
+};
+
+Searchbar.propTypes = {
+  onSubmit: PropTypes.func.isRequired
+};
