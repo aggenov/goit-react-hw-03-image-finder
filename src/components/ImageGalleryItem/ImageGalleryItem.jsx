@@ -23,7 +23,7 @@ export default class ImageGalleryItem extends React.Component{
     return(
       <ListItem className="gallery-item">
         <GalleryImage src={webformatURL} alt={tags} onClick={this.toggleModal}/>
-        { showModal && (<Modal><img src={largeImageURL} alt={tags} /></Modal>)}
+        { showModal && (<Modal onClose = {this.toggleModal}><img src={largeImageURL} alt={tags} /></Modal>)}
       </ListItem>
     )
   }
